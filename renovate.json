@@ -1,6 +1,93 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "extends": [
-    "config:base"
+    "local>cerner-public/renovate-config:group-non-major-monthly.json5"
+  ],
+  "ignorePresets": [
+    "schedule:monthly",
+    ":autodetectRangeStrategy",
+    ":preserveSemverRanges"
+  ],
+  "semanticCommits": true,
+  "dependencyDashboardApproval": true,
+  "separateMultipleMajor": true,
+  "rangeStrategy": "update-lockfile",
+  "packageRules": [
+    {
+      "matchUpdateTypes": [
+        "lockFileMaintenance"
+      ],
+      "addLabels": [
+        "Lock File Maintenance"
+      ]
+    },
+    {
+      "matchDatasources": [
+        "rubygems"
+      ],
+      "matchPackageNames": [
+        "actioncable",
+        "actionmailbox",
+        "actionmailer",
+        "actionpack",
+        "actiontext",
+        "actionview",
+        "activejob",
+        "activemodel",
+        "activerecord",
+        "activestorage",
+        "activesupport",
+        "railties",
+        "rails"
+      ],
+      "groupName": "RoR Minor Dependencies",
+      "groupSlug": "RoR-dependencies",
+      "addLabels": [
+        "Ruby on Rails",
+        "Minor"
+      ]
+    },
+    {
+      "matchUpdateTypes": [
+        "patch"
+      ],
+      "matchDatasources": [
+        "ruby-version",
+        "docker"
+      ],
+      "groupName": "Ruby Minor Update",
+      "groupSlug": "ruby-patch",
+      "addLabels": [
+        "Ruby Patch"
+      ]
+    },
+    {
+      "matchUpdateTypes": [
+        "minor"
+      ],
+      "matchDatasources": [
+        "ruby-version",
+        "docker"
+      ],
+      "groupName": "Ruby Minor Update",
+      "groupSlug": "ruby-minor",
+      "addLabels": [
+        "Ruby Minor"
+      ]
+    },
+    {
+      "matchUpdateTypes": [
+        "major"
+      ],
+      "matchDatasources": [
+        "ruby-version",
+        "docker"
+      ],
+      "groupName": "Ruby Major Update",
+      "groupSlug": "ruby-major",
+      "addLabels": [
+        "Ruby Major"
+      ]
+    }
   ]
 }
