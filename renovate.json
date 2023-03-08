@@ -1,9 +1,26 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "extends": [
-    "github>cerner-public/renovate-config"
+    "config:base",
+    ":preserveSemverRanges",
+    "group:all"
   ],
+  "dependencyDashboard": true,
+  "dependencyDashboardAutoclose": true,
+  "ignoreUnstable": true,
+  "labels": [
+    "Renovate"
+  ],
+  "prConcurrentLimit": 2,
+  "prHourlyLimit": 2,
+  "vulnerabilityAlerts": {
+    "labels": [
+      "Security"
+    ],
+    "schedule": "at any time"
+  },
   "ignorePresets": [
+    "group:all",
     "schedule:monthly",
     ":autodetectRangeStrategy",
     ":preserveSemverRanges"
