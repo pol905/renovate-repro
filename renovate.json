@@ -1,7 +1,7 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "extends": [
-    "github>cerner-public/renovate-config:group-non-major-monthly.json5"
+    "github>cerner-public/renovate-config"
   ],
   "ignorePresets": [
     "schedule:monthly",
