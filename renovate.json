@@ -5,6 +5,7 @@
     ":preserveSemverRanges",
     "group:all"
   ],
+  
   "dependencyDashboard": true,
   "dependencyDashboardAutoclose": true,
   "ignoreUnstable": true,
