@@ -1,0 +1,111 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": [
+    "config:base",
+    ":preserveSemverRanges",
+    "group:all"
+  ],
+  
+  "dependencyDashboard": true,
+  "dependencyDashboardAutoclose": true,
+  "ignoreUnstable": true,
+  "labels": [
+    "Renovate"
+  ],
+  "prConcurrentLimit": 2,
+  "prHourlyLimit": 2,
+  "vulnerabilityAlerts": {
+    "labels": [
+      "Security"
+    ],
+    "schedule": "at any time"
+  },
+  "ignorePresets": [
+    "group:all",
+    "schedule:monthly",
+    ":autodetectRangeStrategy",
+    ":preserveSemverRanges"
+  ],
+  "semanticCommits": true,
+  "dependencyDashboardApproval": true,
+  "separateMultipleMajor": true,
+  "rangeStrategy": "update-lockfile",
+  "packageRules": [
+    {
+      "matchUpdateTypes": [
+        "lockFileMaintenance"
+      ],
+      "addLabels": [
+        "Lock File Maintenance"
+      ]
+    },
+    {
+      "matchDatasources": [
+        "rubygems"
+      ],
+      "matchPackageNames": [
+        "actioncable",
+        "actionmailbox",
+        "actionmailer",
+        "actionpack",
+        "actiontext",
+        "actionview",
+        "activejob",
+        "activemodel",
+        "activerecord",
+        "activestorage",
+        "activesupport",
+        "railties",
+        "rails"
+      ],
+      "groupName": "RoR Minor Dependencies",
+      "groupSlug": "RoR-dependencies",
+      "addLabels": [
+        "Ruby on Rails",
+        "Minor"
+      ]
+    },
+    {
+      "matchUpdateTypes": [
+        "patch"
+      ],
+      "matchDatasources": [
+        "ruby-version",
+        "docker"
+      ],
+      "groupName": "Ruby Minor Update",
+      "groupSlug": "ruby-patch",
+      "addLabels": [
+        "Ruby Patch"
+      ]
+    },
+    {
+      "matchUpdateTypes": [
+        "minor"
+      ],
+      "matchDatasources": [
+        "ruby-version",
+        "docker"
+      ],
+      "groupName": "Ruby Minor Update",
+      "groupSlug": "ruby-minor",
+      "addLabels": [
+        "Ruby Minor"
+      ]
+    },
+    {
+      "matchUpdateTypes": [
+        "major"
+      ],
+      "matchDatasources": [
+        "ruby-version",
+        "docker"
+      ],
+      "groupName": "Ruby Major Update",
+      "groupSlug": "ruby-major",
+      "addLabels": [
+        "Ruby Major"
+      ]
+    }
+  ]
+}
